@@ -18,8 +18,8 @@ src
 |   |   |-Application.kt
 |   |   
 |   |-ressource
-|   |   |-application.conf
-|   |   |-logback.xml
+|       |-application.conf
+|       |-logback.xml
 |   
 |-test
 
