@@ -9,7 +9,7 @@
 > [Boomerang](https://microsoftedge.microsoft.com/addons/detail/boomerang-soap-rest-c/bhmdjpobkcdcompmlhiigoidknlgghfo)<br>
 > [curl://](https://curl.se/)
 ---
-Bien structurer son application depuis le début.
+Bien structurer son application depuis le départ.
 ````kotlin
 src
 |-main
