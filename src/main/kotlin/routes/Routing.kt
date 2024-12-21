@@ -12,7 +12,7 @@ fun Application.configureRouting() {
     routing {
         get("/teams") {
             //* Page blanche
-            call.respond(HttpStatusCode.OK)
+            call.respond("Hello")
         }
         get("/teams/{team_id}"){
             val teamId: Int? = call.parameters["team_id"]?.toIntOrNull()

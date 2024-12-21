@@ -28,3 +28,29 @@ src
 |-test
 
 ````
+Méthode qui permet d'envoyer la réponse au client àl'origine de la requête.
+````kotlin
+//réponse
+abstract suspend fun respond(message: Any?, typeInfo: TypeInfo?)
+
+//Envoie un message en guise de réponse.
+
+//réponse
+inline suspend fun <T : Any> ApplicationCall.respond(message: T)
+
+//Envoie un message en guise de réponse.
+
+@JvmName(name = "respondWithType")
+inline suspend fun <T : Any> ApplicationCall.respond(
+    status: HttpStatusCode, 
+    message: T
+)
+
+//Envoie un message comme réponse avec le code d'état spécifié.
+
+suspend fun ApplicationCall.respond(
+    status: HttpStatusCode, 
+    message: Any?, 
+    messageType: TypeInfo
+)
+````
