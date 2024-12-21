@@ -10,6 +10,10 @@ import org.slf4j.LoggerFactory
 fun Application.configureRouting() {
     val logger = LoggerFactory.getLogger("\nApplication")
     routing {
+        get("/teams") {
+            //* Page blanche
+            call.respond(HttpStatusCode.OK)
+        }
         get("/teams/{team_id}"){
             val teamId: Int? = call.parameters["team_id"]?.toIntOrNull()
             logger.info("Équipe reçue: $teamId")
