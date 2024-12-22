@@ -14,19 +14,28 @@ fun Application.configureRouting() {
             //* Page blanche
             call.respond("Hello")
         }
-        get("/teams/{team_id}"){
+        get("/teams/{team_id}/players/{playe_id}"){
             val teamId: Int? = call.parameters["team_id"]?.toIntOrNull()
+
             logger.info("Équipe reçue: $teamId")
-            if (teamId == null){
+
+            if ((teamId ) == null){
                 call.respond(HttpStatusCode.BadRequest)
             }else{
                 val team = Team(
                     id = teamId,
-                    name = "A voir!"
+                    name = "A souli!"
                 )
                 call.respond(HttpStatusCode.OK, team)
             }
         }
-
+        get("/teams/") {
+            val country: String? = call.queryParameters["country"]
+            if (country == null){
+                call.respond(HttpStatusCode.BadRequest)
+            }else{
+                call.respond(HttpStatusCode.OK, country)
+            }
+        }
     }
 }
