@@ -10,7 +10,7 @@
 > [curl://](https://curl.se/)
 ---
 Bien structurer son application depuis le départ.
-````kotlin
+````text
 src
 |-main
 |   |-kotlin
@@ -29,7 +29,7 @@ src
 
 ````
 Méthode qui permet d'envoyer la réponse au client àl'origine de la requête.
-````kotlin
+````textmate
 //réponse
 abstract suspend fun respond(message: Any?, typeInfo: TypeInfo?)
 
@@ -53,4 +53,6 @@ suspend fun ApplicationCall.respond(
     message: Any?, 
     messageType: TypeInfo
 )
+
+// Encore plus...
 ````
