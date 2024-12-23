@@ -1,6 +1,7 @@
 package fr.hamtec
 
-import fr.hamtec.plugins.configurecontentNegotiation
+import fr.hamtec.plugins.configureContentNegotiation
+import fr.hamtec.plugins.configureRequestValidation
 import fr.hamtec.routes.configureRouting
 import io.ktor.server.application.*
 import io.ktor.server.netty.*
@@ -10,6 +11,7 @@ import io.ktor.server.netty.*
 fun main(args: Array<String>) = EngineMain.main(args)
 
 fun Application.module() {
-    configurecontentNegotiation()
+    configureContentNegotiation()
+    configureRequestValidation()
     configureRouting()
 }
