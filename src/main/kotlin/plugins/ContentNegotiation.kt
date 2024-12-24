@@ -8,6 +8,6 @@ import io.ktor.server.plugins.contentnegotiation.*
 fun Application.configureContentNegotiation(){
     install(ContentNegotiation){
         json()
-        xml()
+        //xml()
     }
 }
