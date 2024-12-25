@@ -16,5 +16,10 @@ fun Application.configureRoutingExemple(){
             call.respondText("This is a gzip compressed response", ContentType.Text.Plain)
             //* teste avec: curl -H "Accept-Encoding: gzip" localhost:8080/compressed-example
         }
+        get("/example") {
+            // Lire l'en-tête "User-Agent"
+            val userAgent = call.request.headers["User-Agent"]
+            call.respondText("User-Agent: $userAgent")
+        }
     }
 }

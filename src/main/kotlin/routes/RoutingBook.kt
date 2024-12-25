@@ -2,16 +2,18 @@ package fr.hamtec.routes
 
 import fr.hamtec.data.Team
 import io.ktor.http.*
+import io.ktor.server.application.*
+import io.ktor.server.html.*
 import io.ktor.server.http.content.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.html.*
 import org.slf4j.LoggerFactory
-import io.ktor.server.application.*
 
 
 fun Application.configureRoutingBook(){
-    val logger = LoggerFactory.getLogger("Application")
+    val logger = LoggerFactory.getLogger("Application-Book")
     routing {
         //staticFiles("/static", File("resources"))
         staticResources("/website", "frontend")
@@ -55,10 +57,29 @@ fun Application.configureRoutingBook(){
             val team = Team(id = teamId?.toIntOrNull() ?: 0, name = "Souli!")
             call.respond(team)
         }
-        get("/example") {
-            // Lire l'en-tête "User-Agent"
-            val userAgent = call.request.headers["User-Agent"]
-            call.respondText("User-Agent: $userAgent")
+        staticResources("/hello", "frontend")
+        get("/hello/{user_name}") {
+            val userName = call.parameters["user_name"]
+            call.respondHtml {
+                body {
+                    h1 { +"Hello, World!" }
+                    p {
+                        text("Hello ${userName}")
+                        link(rel = "stylesheet", href = "css/styles.css")
+                    }
+                    ul {
+                        repeat(5) {
+                            li { +"Item $it" }
+                        }
+                    }
+                    p {
+                        id = "intro-paragraph"
+                        classes = setOf("intro")
+                        style = "color: red; font-size: 16px;"
+                        +"This is a demonstration of kotlinx.html."
+                    }
+                }
+            }
         }
 
     }
