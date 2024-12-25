@@ -58,6 +58,7 @@ fun Application.configureRoutingBook(){
             call.respond(team)
         }
         staticResources("/hello", "frontend")
+
         get("/hello/{user_name}") {
             val userName = call.parameters["user_name"]
             call.respondHtml {
@@ -67,6 +68,7 @@ fun Application.configureRoutingBook(){
                         text("Hello ${userName}")
                         link(rel = "stylesheet", href = "css/styles.css")
                     }
+
                     ul {
                         repeat(5) {
                             li { +"Item $it" }
@@ -75,12 +77,33 @@ fun Application.configureRoutingBook(){
                     p {
                         id = "intro-paragraph"
                         classes = setOf("intro")
-                        style = "color: red; font-size: 16px;"
+                        style = "color: red; font-size: 20px;"
                         +"This is a demonstration of kotlinx.html."
                     }
                 }
             }
         }
+        get("/mytemplate") {
+            call.respondHtmlTemplate(MyLayoutTemplate(), HttpStatusCode.OK){
+                header{
+                    p{+"hello kotlin"}
+                }
+                content{+"Using kotlin to gennerate HTML!"}
+            }
+        }
 
     }
+}
+class MyLayoutTemplate: Template<HTML>{
+    val header = Placeholder<FlowContent>()
+    val content = Placeholder<FlowContent>()
+    override fun HTML.apply() {
+        body {
+            h1 { insert(header) }
+            div {
+                p{ insert(content)}
+            }
+        }
+    }
+
 }
