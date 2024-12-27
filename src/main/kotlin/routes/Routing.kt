@@ -6,6 +6,7 @@ fun Application.configureRouting() {
     //* Choisir application a executer
     //configureRoutingBook()
     //configureRoutingExemple()
-    configurePageHTML()
+    //configurePageHTML()
+    configurePageAcceuil()
 }
 

@@ -12,9 +12,9 @@ fun BODY.headerSection() {
     }
 }
 
-fun BODY.contentSection() {
+fun BODY.contentSection(content: String) {
     main(classes = "content") {
-        p { +"Ceci est le contenu principal de la page généré avec le DSL HTML de Ktor." }
+        p { +"Ceci est le contenu principal de la page généré avec le DSL HTML de Ktor.$content" }
     }
 }
 

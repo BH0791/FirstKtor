@@ -22,7 +22,7 @@ fun Application.configurePageHTML(){
                 head{ commonHead() }
                 body {
                     headerSection()
-                    contentSection()
+                    contentSection("Mettre un texte")
                     footerSection()
                 }
             }

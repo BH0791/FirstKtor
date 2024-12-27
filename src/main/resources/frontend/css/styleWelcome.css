@@ -3,12 +3,12 @@
     font-size: 16px;
 }
 
-.title {
-    font-size: 24px;
-    color: #111;
+.title, .main-header {
+    font-size: 18px;
+    color: #060066;
 }
 
-.content {
-    font-size: 16px;
-    color: #666;
+.content, .main-footer {
+    font-size: 10px;
+    color: #0a0099;
 }
