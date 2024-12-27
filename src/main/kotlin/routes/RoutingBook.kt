@@ -40,7 +40,7 @@ fun Application.configureRoutingBook(){
             val team = call.receive<Team>()
             call.respond(HttpStatusCode.OK, team)
         }
-        get("/teams/{team.id}") {
+        get("/teams3/{team.id}") {
             val teamId: Int? = call.parameters["team.id"]?.toIntOrNull()
             if (teamId == null) {
                 call.respond(HttpStatusCode.BadRequest)
@@ -58,7 +58,6 @@ fun Application.configureRoutingBook(){
             call.respond(team)
         }
         staticResources("/hello", "frontend")
-
         get("/hello/{user_name}") {
             val userName = call.parameters["user_name"]
             call.respondHtml {
@@ -91,6 +90,23 @@ fun Application.configureRoutingBook(){
                 content{+"Using kotlin to gennerate HTML!"}
             }
         }
+        get("/teams/") {
+            val country: String? = call.queryParameters["country"]
+            if(country == null) {
+                call.respond(HttpStatusCode.BadRequest)
+            }else{
+                call.respond(HttpStatusCode.OK,"Ca marche bien $country")
+            }
+        }
+
+//        get("/headers") {
+//            val text: String? = call.request.headers["User-Agent"]
+//            if(text== null){
+//                call.respond(HttpStatusCode.BadRequest)
+//            }else{
+//                call.respond(HttpStatusCode.OK, text)
+//            }
+//        }
 
     }
 }

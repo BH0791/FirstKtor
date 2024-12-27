@@ -4,7 +4,8 @@ import io.ktor.server.application.*
 
 fun Application.configureRouting() {
     //* Choisir application a executer
-    configureRoutingBook()
+    //configureRoutingBook()
     //configureRoutingExemple()
+    configurePageHTML()
 }
 
