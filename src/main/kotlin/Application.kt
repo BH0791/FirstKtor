@@ -1,6 +1,7 @@
 package fr.hamtec
 
 import fr.hamtec.plugins.configureContentNegotiation
+import fr.hamtec.plugins.configureFreemarker
 import fr.hamtec.plugins.configureRequestValidation
 import fr.hamtec.plugins.configureStatusPage
 import fr.hamtec.routes.configureRouting
@@ -15,5 +16,6 @@ fun Application.module() {
     configureContentNegotiation()
     configureRequestValidation()
     configureStatusPage()
+    configureFreemarker()
     configureRouting()
 }

@@ -1,7 +1,8 @@
 ## Développement d'API avec Ktor
 
 ---
-> [Serveur HTTP Netty](https://ktor.io/) <br>
+> [Serveur HTTP Netty](https://ktor.io/)<br>
+> [Freemaker](https://freemarker.apache.org/)<br>
 > [gradle-8.12](https://gradle.org/) <br>
 > [jdk-23.0.1](https://www.oracle.com/) <br>
 > [Kotlin 2.1.00](https://github.com/JetBrains/kotlin/releases) <br>

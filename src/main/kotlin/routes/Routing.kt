@@ -7,6 +7,7 @@ fun Application.configureRouting() {
     //configureRoutingBook()
     //configureRoutingExemple()
     //configurePageHTML()
-    configurePageAcceuil()
+    //configurePageAcceuil()
+    configureWelcome()
 }
 
